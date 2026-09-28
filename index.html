@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pão de mel artesanal feito com carinho. Confira os sabores, faça seu pedido e receba pelo WhatsApp.">
+  <meta name="theme-color" content="#5b2d18">
+  <title>Pão de Mel Artesanal | Sabor Incomparável</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loadingScreen" class="loading-screen">
+    <div class="loader"></div>
+    <p>Carregando...</p>
+  </div>
+
+  <div class="top-bar">
+    <span><i class="fa-solid fa-heart"></i> Feito artesanalmente com carinho</span>
+    <span id="topBarInfo">Pedidos pelo WhatsApp</span>
+  </div>
+
+  <header class="hero">
+    <div class="hero-decoration hero-decoration-1">🍯</div>
+    <div class="hero-decoration hero-decoration-2">🍫</div>
+
+    <div class="hero-content">
+      <span class="badge" id="heroBadge">ARTESANAL • FRESQUINHO • DELICIOSO</span>
+      <h1 id="heroTitle">Pão de Mel Artesanal</h1>
+      <p id="heroSubtitle">Uma explosão de sabor em cada mordida!</p>
+      <div class="hero-actions">
+        <a href="#pedido" class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i> Fazer pedido</a>
+        <a href="#produtos" class="btn btn-outline"><i class="fa-solid fa-cookie-bite"></i> Ver sabores</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="trust-strip">
+      <div><i class="fa-solid fa-house"></i><div><strong>Produção artesanal</strong><span>Feito em pequenos lotes</span></div></div>
+      <div><i class="fa-solid fa-heart"></i><div><strong>Feito com carinho</strong><span>Ingredientes selecionados</span></div></div>
+      <div><i class="fa-solid fa-motorcycle"></i><div><strong>Entrega ou retirada</strong><span>Consulte sua região</span></div></div>
+    </section>
+
+    <section class="section why-section">
+      <div class="section-heading">
+        <span class="eyebrow">POR QUE ESCOLHER?</span>
+        <h2>Mais que um doce, uma experiência</h2>
+        <p id="whyText">Cada pão de mel é preparado com cuidado para chegar até você macio, recheado e cheio de sabor.</p>
+      </div>
+      <div class="benefits-grid">
+        <article class="benefit-card"><div class="benefit-icon">🍯</div><h3>Receita especial</h3><p>Uma combinação equilibrada de massa, recheio e chocolate.</p></article>
+        <article class="benefit-card"><div class="benefit-icon">🤎</div><h3>Produção artesanal</h3><p>Produzido em pequenos lotes para manter o padrão de qualidade.</p></article>
+        <article class="benefit-card"><div class="benefit-icon">✨</div><h3>Capricho em cada detalhe</h3><p>Do preparo à embalagem, tudo é pensado para você.</p></article>
+        <article class="benefit-card"><div class="benefit-icon">🎁</div><h3>Perfeito para presentear</h3><p>Uma opção deliciosa para festas, empresas e momentos especiais.</p></article>
+      </div>
+    </section>
+
+    <section id="produtos" class="section products-section">
+      <div class="section-heading">
+        <span class="eyebrow">NOSSOS SABORES</span>
+        <h2>Escolha seus favoritos</h2>
+        <p>Adicione os sabores ao seu pedido e confira o resumo antes de finalizar.</p>
+      </div>
+      <div id="productsGrid" class="products-grid"></div>
+    </section>
+
+    <section class="section best-section">
+      <div class="section-heading">
+        <span class="eyebrow">DESTAQUES</span>
+        <h2>Mais pedidos</h2>
+        <p>Os sabores que mais aparecem nos pedidos recentes.</p>
+      </div>
+      <div id="bestSellersGrid" class="best-sellers-grid"></div>
+    </section>
+
+    <section id="pedido" class="section order-section">
+      <div class="section-heading">
+        <span class="eyebrow">SEU PEDIDO</span>
+        <h2>Monte seu pedido</h2>
+        <p>Escolha as quantidades, informe seus dados e envie o pedido pelo WhatsApp.</p>
+      </div>
+
+      <div class="order-layout">
+        <form id="orderForm" class="order-form">
+          <div class="form-card">
+            <h3><i class="fa-solid fa-user"></i> Seus dados</h3>
+            <div class="form-grid">
+              <label>Nome
+                <input id="customerName" type="text" required placeholder="Seu nome">
+              </label>
+              <label>WhatsApp
+                <input id="customerWhatsapp" type="tel" required placeholder="(11) 99999-9999">
+              </label>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <h3><i class="fa-solid fa-basket-shopping"></i> Produtos</h3>
+            <div id="orderProducts" class="order-products"></div>
+          </div>
+
+          <div class="form-card">
+            <h3><i class="fa-solid fa-truck"></i> Entrega</h3>
+            <div class="delivery-options">
+              <label class="radio-card"><input type="radio" name="deliveryType" value="delivery" checked><span><strong>Entrega</strong><small>Receba no endereço informado</small></span></label>
+              <label class="radio-card"><input type="radio" name="deliveryType" value="pickup"><span><strong>Retirada</strong><small>Combine o horário de retirada</small></span></label>
+            </div>
+
+            <div id="deliveryFields" class="delivery-fields">
+              <label>Endereço
+                <input id="customerAddress" type="text" placeholder="Rua, número, bairro">
+              </label>
+              <div class="form-grid">
+                <label>Data desejada
+                  <input id="deliveryDate" type="date">
+                </label>
+                <label>Observação
+                  <input id="orderNote" type="text" placeholder="Ex.: tocar interfone">
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-large" type="submit"><i class="fa-brands fa-whatsapp"></i> Finalizar pedido pelo WhatsApp</button>
+          <p class="small-note"><i class="fa-solid fa-shield-halved"></i> Seus dados são usados somente para processar seu pedido.</p>
+        </form>
+
+        <aside class="cart-summary">
+          <div class="summary-card">
+            <div class="summary-header"><h3>Resumo do pedido</h3><span id="cartCount">0 itens</span></div>
+            <div id="cartItems" class="cart-items"><div class="empty-cart">Seu carrinho está vazio.<br>Escolha seus sabores acima.</div></div>
+            <div class="summary-lines">
+              <div><span>Subtotal</span><strong id="cartSubtotal">R$ 0,00</strong></div>
+              <div><span>Entrega</span><strong id="cartDelivery">R$ 0,00</strong></div>
+              <div class="total-line"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+            </div>
+            <a href="#produtos" class="continue-link">← Continuar comprando</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="section">
+        <div class="section-heading">
+          <span class="eyebrow">COMO FUNCIONA</span>
+          <h2>Do pedido à sua porta</h2>
+        </div>
+        <div class="steps-grid">
+          <div class="step"><span>1</span><i class="fa-solid fa-cookie-bite"></i><h3>Escolha</h3><p>Selecione seus sabores e quantidades.</p></div>
+          <div class="step"><span>2</span><i class="fa-brands fa-whatsapp"></i><h3>Envie</h3><p>O pedido é registrado e enviado pelo WhatsApp.</p></div>
+          <div class="step"><span>3</span><i class="fa-solid fa-check"></i><h3>Confirme</h3><p>Combinamos pagamento, data e entrega.</p></div>
+          <div class="step"><span>4</span><i class="fa-solid fa-heart"></i><h3>Aproveite</h3><p>Receba e aproveite seu pão de mel.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="avaliacoes" class="section reviews-section">
+      <div class="section-heading">
+        <span class="eyebrow">AVALIAÇÕES</span>
+        <h2>Quem prova, recomenda</h2>
+        <p>Confira experiências de clientes.</p>
+      </div>
+      <div id="reviewsGrid" class="reviews-grid"></div>
+
+      <div class="review-form-card">
+        <h3>Já experimentou? Conte para a gente!</h3>
+        <form id="reviewForm">
+          <div class="form-grid">
+            <label>Seu nome<input id="reviewName" required placeholder="Seu nome"></label>
+            <label>Nota
+              <select id="reviewRating" required>
+                <option value="5">★★★★★ — 5</option>
+                <option value="4">★★★★☆ — 4</option>
+                <option value="3">★★★☆☆ — 3</option>
+                <option value="2">★★☆☆☆ — 2</option>
+                <option value="1">★☆☆☆☆ — 1</option>
+              </select>
+            </label>
+          </div>
+          <label>Comentário<textarea id="reviewText" required maxlength="500" placeholder="Como foi sua experiência?"></textarea></label>
+          <button class="btn btn-secondary" type="submit"><i class="fa-solid fa-star"></i> Enviar avaliação</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div>
+        <span class="eyebrow">FICOU COM VONTADE?</span>
+        <h2>Seu próximo pão de mel está aqui.</h2>
+        <p>Monte seu pedido em poucos cliques.</p>
+      </div>
+      <a href="#pedido" class="btn btn-light">Fazer meu pedido <i class="fa-solid fa-arrow-right"></i></a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-main">
+      <div><h3 id="footerBusinessName">Pão de Mel Artesanal</h3><p id="footerDescription">Delícias artesanais feitas com carinho.</p></div>
+      <div><h4>Contato</h4><p id="footerWhatsapp">WhatsApp: —</p><p id="footerHours">Horário: —</p></div>
+      <div><h4>Atendimento</h4><p id="footerDelivery">Entrega e retirada</p><p>Consulte disponibilidade para sua região.</p></div>
+    </div>
+    <div class="footer-bottom">© <span id="footerYear"></span> <span id="footerBusinessName2">Pão de Mel Artesanal</span>. Todos os direitos reservados.</div>
+  </footer>
+
+  <a id="whatsappFloat" class="whatsapp-float" href="#" target="_blank" rel="noopener" aria-label="Falar no WhatsApp"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+  <a href="#pedido" class="mobile-order-btn"><i class="fa-solid fa-cart-shopping"></i> Fazer pedido</a>
+
+  <!-- Admin -->
+  <div id="adminLoginModal" class="modal">
+    <div class="modal-card small">
+      <button class="modal-close" data-close="adminLoginModal">×</button>
+      <div class="modal-icon">🔐</div>
+      <h2>Área administrativa</h2>
+      <p>Entre com o e-mail e senha cadastrados no Supabase Auth.</p>
+      <form id="adminLoginForm">
+        <label>E-mail<input id="adminEmail" type="email" required autocomplete="username"></label>
+        <label>Senha<input id="adminPassword" type="password" required autocomplete="current-password"></label>
+        <button class="btn btn-primary btn-large" type="submit">Entrar</button>
+      </form>
+      <p id="adminLoginError" class="error-text"></p>
+    </div>
+  </div>
+
+  <div id="adminPanel" class="admin-panel">
+    <div class="admin-topbar">
+      <div><strong>Painel administrativo</strong><span id="adminUserEmail"></span></div>
+      <div class="admin-top-actions"><button id="adminRefreshBtn" class="btn btn-small">Atualizar</button><button id="adminLogoutBtn" class="btn btn-small btn-danger">Sair</button></div>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="active" data-tab="dashboardTab">Dashboard</button>
+      <button data-tab="ordersTab">Pedidos</button>
+      <button data-tab="productsTab">Produtos</button>
+      <button data-tab="reviewsTab">Avaliações</button>
+      <button data-tab="settingsTab">Configurações</button>
+    </div>
+
+    <div class="admin-content">
+      <section id="dashboardTab" class="admin-tab active">
+        <div class="admin-header"><div><span class="eyebrow">VISÃO GERAL</span><h2>Dashboard</h2></div></div>
+        <div class="stats-grid">
+          <div class="stat-card"><span>Hoje</span><strong id="statToday">R$ 0,00</strong><small id="statTodayOrders">0 pedidos</small></div>
+          <div class="stat-card"><span>Últimos 7 dias</span><strong id="statWeek">R$ 0,00</strong><small id="statWeekOrders">0 pedidos</small></div>
+          <div class="stat-card"><span>Últimos 30 dias</span><strong id="statMonth">R$ 0,00</strong><small id="statMonthOrders">0 pedidos</small></div>
+          <div class="stat-card"><span>Em aberto</span><strong id="statOpen">0</strong><small>pedidos</small></div>
+        </div>
+        <div class="admin-card"><h3>Produtos mais pedidos</h3><div id="adminBestSellers"></div></div>
+      </section>
+
+      <section id="ordersTab" class="admin-tab">
+        <div class="admin-header"><div><span class="eyebrow">VENDAS</span><h2>Pedidos</h2></div><select id="orderStatusFilter"><option value="">Todos</option><option value="pending">Pendentes</option><option value="confirmed">Confirmados</option><option value="preparing">Preparando</option><option value="out_for_delivery">Saiu para entrega</option><option value="delivered">Entregues</option><option value="cancelled">Cancelados</option></select></div>
+        <div class="admin-card table-card"><div class="table-wrap"><table><thead><tr><th>Data</th><th>Cliente</th><th>Contato</th><th>Itens</th><th>Total</th><th>Status</th><th>Ações</th></tr></thead><tbody id="ordersTableBody"></tbody></table></div></div>
+      </section>
+
+      <section id="productsTab" class="admin-tab">
+        <div class="admin-header"><div><span class="eyebrow">CATÁLOGO</span><h2>Produtos</h2></div><button id="addProductBtn" class="btn btn-primary">+ Novo produto</button></div>
+        <div id="adminProductsGrid" class="admin-products-grid"></div>
+      </section>
+
+      <section id="reviewsTab" class="admin-tab">
+        <div class="admin-header"><div><span class="eyebrow">CLIENTES</span><h2>Avaliações</h2></div></div>
+        <div id="adminReviewsList" class="admin-reviews-list"></div>
+      </section>
+
+      <section id="settingsTab" class="admin-tab">
+        <div class="admin-header"><div><span class="eyebrow">SITE</span><h2>Configurações</h2></div></div>
+        <form id="settingsForm" class="admin-card settings-form">
+          <div class="form-grid">
+            <label>Nome do negócio<input id="setBusinessName"></label>
+            <label>WhatsApp (somente números)<input id="setWhatsapp" placeholder="5511999999999"></label>
+          </div>
+          <div class="form-grid">
+            <label>Badge do topo<input id="setHeroBadge"></label>
+            <label>Título principal<input id="setHeroTitle"></label>
+          </div>
+          <label>Subtítulo<input id="setHeroSubtitle"></label>
+          <label>Texto “Por que escolher?”<textarea id="setWhyText"></textarea></label>
+          <div class="form-grid">
+            <label>Taxa de entrega (R$)<input id="setDeliveryFee" type="number" step="0.01" min="0"></label>
+            <label>Horário de atendimento<input id="setHours"></label>
+          </div>
+          <label>Descrição do negócio<input id="setDescription"></label>
+          <button class="btn btn-primary" type="submit">Salvar configurações</button>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <!-- Product modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-card">
+      <button class="modal-close" data-close="productModal">×</button>
+      <h2 id="productModalTitle">Novo produto</h2>
+      <form id="productForm">
+        <input type="hidden" id="productId">
+        <label>Nome<input id="productName" required></label>
+        <div class="form-grid">
+          <label>Preço<input id="productPrice" type="number" step="0.01" min="0" required></label>
+          <label>Imagem (URL)<input id="productImage" placeholder="https://..."></label>
+        </div>
+        <label>Descrição<textarea id="productDescription"></textarea></label>
+        <label>Ativo <select id="productActive"><option value="true">Sim</option><option value="false">Não</option></select></label>
+        <button class="btn btn-primary btn-large" type="submit">Salvar produto</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js"></script>
+</body>
+</html>
