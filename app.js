@@ -6,8 +6,8 @@
    3. Cole a URL e a chave ANON/PUBLISHABLE abaixo.
    4. Rode o arquivo supabase.sql no SQL Editor.
 */
-const SUPABASE_URL = "COLE_SUA_SUPABASE_URL_AQUI";
-const SUPABASE_ANON_KEY = "COLE_SUA_SUPABASE_ANON_KEY_AQUI";
+const SUPABASE_URL = "https://psechwwcvcxrbbvbtmce.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBzZWNod3djdmN4cmJidmJ0bWNlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA2MTU5MTQsImV4cCI6MjEwNjE5MTkxNH0.XGFt-0XSMG8dNgHeBfbhB6jUx7bFHZ2_NTsE3M3UGOw";
 
 const isConfigured = !SUPABASE_URL.includes("COLE_SUA") && !SUPABASE_ANON_KEY.includes("COLE_SUA");
 const sb = isConfigured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
